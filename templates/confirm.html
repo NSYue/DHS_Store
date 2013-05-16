@@ -1,0 +1,25 @@
+{% extends "template.html" %}
+{% block content %}
+{% if total == 0 %}
+    <p><strong>{{ sign }}</strong></p>
+  {% endif %}
+<form method="post" class="form" enctype="multipart/form-data">
+    <h3>Items orderd:</h3>
+    <table border=1>
+    <tr>
+    <td>Item</td>
+    <td>Unit Price</td>
+    <td>Number</td>
+    </tr>
+    {% for order in orders %}
+    <tr>
+    <td>{{ order[0] }}</td>
+    <td>${{ order[1] }}</td>
+    <td>{{ order[2] }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    <a href='/delete'>Cancel</a>  <a href='/submit'>Confirm</a>
+</form>
+    Total:${{ total }}
+{% endblock %}

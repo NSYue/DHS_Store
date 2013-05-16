@@ -1,0 +1,29 @@
+{% extends "template.html" %}
+{% block content %}
+  <h1>Sign up</h1>
+  {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+  <form method="post" class="form" enctype="multipart/form-data">
+    <dl>
+      <dt>Username:
+      <dd><input type=text name=username value="{{
+          request.form.username }}">
+      <dt>Password:
+      <dd><input type=password name=password value="{{
+          request.form.password }}">
+      <dt>Comfirm your password:
+      <dd><input type=password name=repassword value="{{
+          request.form.repassword }}">
+      <dt>Email:
+      <dd><input type=text name=email value="{{
+          request.form.email }}">
+    </dl>
+    <p><input type=submit value=signup>
+  </form>
+{% for message in get_flashed_messages() %}
+    <div class=flash>
+        {{ message }}
+    </div>
+{% endfor %}
+{% endblock %}

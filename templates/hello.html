@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+{% block content %}
+    <h2>Welcome! You are now logged in.</h2>
+    <a href="/logout">Log out</a>
+    <br />
+    <br />
+    <h3>Items available:</h3>
+    <table border="1">
+    <tr>
+    <td>  </td>
+    <td>Item</td>
+    <td>Unit price</td>
+    <td>  </td>
+    </tr>
+    {% for items in items %}
+    <tr>
+    <td>{{ items.id }}</td>
+    <td>{{ items.item }}</td>
+    <td>${{ items.unitprice }}</td>
+    <td><img src="/static/img/{{ items.id }}.jpg"/></td>
+    </tr>
+    {% endfor %}
+    </table>
+    <br \>
+    <a href="/order">Order here</a>
+{% endblock %}

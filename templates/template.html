@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DHS store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+   <div id="wrap">
+    <header>
+      <div id="top">
+        <h2>DHS Store</h2>
+          <div id="menu">
+            <ul>
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/log">Log in</a></li>
+              <li><a href="/signup">Sign up</a></li>
+              {% if logged_in %}
+              <li><a href="/confirm">Your order</a></li>
+              <li><a href="/logout">Log out</a></li>
+              {% endif %}
+            </ul>
+          </div>
+      </div>
+    </header>
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+  <footer>
+  <br>
+    <p>Contact<br>
+	Email: <a href="mailto:nie.shuyue@dhs.sg">
+		nie.shuyue@dhs.sg</a></p>
+	<h4>&copy; 2013 DHS 5C23 Nie Shuyue</h4>
+	</footer>
+    </div>
+   </div>
+  </body>
+
+</html>
